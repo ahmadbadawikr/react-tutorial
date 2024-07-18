@@ -1,39 +1,41 @@
 // import { UserProfile } from "./components/UserProfile"
 // import { UserDetails } from "./components/UserDetails"
-
+import { LoginForm } from "./components/LoginForm"
 export default function App() {
-  const USER_STATUS = "ACCOUNT DISABLED";
-
-  switch(USER_STATUS) {
-    case "NOT VERIFIED":
-      return (
-        <div>
-          <span>
-            You are not verified. Please verify your Email or Mobile Number.
-          </span>
-        </div>
-      );
-    case "VERIFIED":
-      return(
-        <div>
-          <span>
-            You are verified. Click here to access the dashboard.
-          </span>
-        </div>
-      );
-    case "ACCOUNT DISABLED":
-      return(
-        <div>
-          <span>
-            Your account is disabled.
-          </span>
-        </div>
-      )
-
-  }
-
+  return <div>
+    <LoginForm></LoginForm>
+  </div>
 }
 
+  // const USER_STATUS = "ACCOUNT DISABLED";
+
+  // switch(USER_STATUS) {
+  //   case "NOT VERIFIED":
+  //     return (
+  //       <div>
+  //         <span>
+  //           You are not verified. Please verify your Email or Mobile Number.
+  //         </span>
+  //       </div>
+  //     );
+  //   case "VERIFIED":
+  //     return(
+  //       <div>
+  //         <span>
+  //           You are verified. Click here to access the dashboard.
+  //         </span>
+  //       </div>
+  //     );
+  //   case "ACCOUNT DISABLED":
+  //     return(
+  //       <div>
+  //         <span>
+  //           Your account is disabled.
+  //         </span>
+  //       </div>
+  //     )
+
+  // }
 
   // const mockUsers = [
   //   {
