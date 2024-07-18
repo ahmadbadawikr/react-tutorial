@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import propTypes from "prop-types";
 import { UserFavoriteFoods } from "./UserFavoriteFoods";
 import { UserUsername } from "./UserUsername";
 
@@ -17,15 +17,15 @@ export function UserProfile(props) {
     );
 }
 
-UserProfile.PropTypes = {
-    username: PropTypes.string.isRequired,
-    age: PropTypes.number.isRequired,
-    callMe: PropTypes.func.isRequired,
-    isLoggedin: PropTypes.bool,
-    favoriteFoods: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            name: PropTypes.string.isRequired
+UserProfile.propTypes = {
+    username: propTypes.string.isRequired,
+    age: propTypes.number.isRequired,
+    callMe: propTypes.func.isRequired,
+    isLoggedin: propTypes.bool,
+    favoriteFoods: propTypes.arrayOf(
+        propTypes.shape({
+            id: propTypes.string.isRequired,
+            name: propTypes.string.isRequired
         })
     )
 
