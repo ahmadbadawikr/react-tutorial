@@ -1,10 +1,17 @@
 // import { UserProfile } from "./components/UserProfile"
 // import { UserDetails } from "./components/UserDetails"
-import { LoginForm } from "./components/LoginForm"
+// import { LoginForm } from "./components/LoginForm"
+import { RegisterForm } from "./components/RegisterForm"
+
 export default function App() {
-  return <div>
-    <LoginForm></LoginForm>
-  </div>
+  window.addEventListener("resize", (e)=> {
+    console.log(window.screenX, window.screenY)
+  })
+  return (
+    <div>
+      <RegisterForm></RegisterForm>
+    </div>
+  )
 }
 
   // const USER_STATUS = "ACCOUNT DISABLED";
