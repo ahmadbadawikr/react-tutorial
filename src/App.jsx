@@ -1,22 +1,43 @@
 // import { UserProfile } from "./components/UserProfile"
 // import { UserDetails } from "./components/UserDetails"
-import { LoginForm } from "./components/LoginForm"
+// import { LoginForm } from "./components/LoginForm"
 // import { RegisterForm } from "./components/RegisterForm"
 // import { UserDetails } from "./components/UserDetails";
-
+import { PostContainer } from "./components/PostContainer";
+import { PostContentButtons } from "./components/PostContentButtons";
 import { useState, useEffect } from "react";
+import { UserContext } from "./contexts/UserContext";
 
 export default function App() {
-  
-  const [toggle, setToggle] = useState(false);
-  
+  const [userData, setUserData] = useState({
+    id:1,
+    username: "aegontheconqueror",
+    email:"aegon@kingslanding.com",
+    displayName:"Aegon the Conqueror"
+  })
+
   return (
-    <div>
-      <button onClick={()=> setToggle((currentState)=>!currentState)}>Toggle</button>
-      {toggle && <LoginForm/>}
-    </div>)
+   <>
+    <UserContext.Provider 
+      value={{
+        ...userData, 
+        setUserData
+    }}>
+      <div>
+        <PostContainer/>
+      </div>
+   </UserContext.Provider>
+   </>
+  )
   
 }
+// const [toggle, setToggle] = useState(false);
+  
+// return (
+//   <div>
+//     <button onClick={()=> setToggle((currentState)=>!currentState)}>Toggle</button>
+//     {toggle && <LoginForm/>}
+//   </div>)
 
 // const [blogPostData, setBlogPostData] = useState({
 //   title:"",
