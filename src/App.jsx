@@ -14,6 +14,18 @@ export default function App() {
   console.log("rendering...")
   document.title = "React Tutorial"+ counter
  }, [sync])
+
+ useEffect(() =>{
+  fetch('https://jsonplaceholder.typicode.com/users', {
+    method: 'GET',
+  }).then((response)=> {
+    return response.json();
+  }).then((data)=>{
+    console.log(data)
+  }).catch((err)=>{
+    console.log(err)
+    console.log("Invalid endpoints")})
+ })
  return (
   <div>
     <div>
