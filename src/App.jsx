@@ -4,18 +4,18 @@
 // import { RegisterForm } from "./components/RegisterForm"
 // import { UserDetails } from "./components/UserDetails";
 import { PostContainer } from "./components/PostContainer";
-import { PostContentButtons } from "./components/PostContentButtons";
 import { useState, useEffect } from "react";
 import { UserContext } from "./contexts/UserContext";
+import { useFetchUser } from "./utils/hooks/useFetchUser";
 
 export default function App() {
-  const [userData, setUserData] = useState({
-    id:1,
-    username: "aegontheconqueror",
-    email:"aegon@kingslanding.com",
-    displayName:"Aegon the Conqueror"
-  })
+  const {user, loading, error} = useFetchUser(2)
 
+  const [userData, setUserData] = useState()
+  
+  useEffect(()=> {
+    if (!loading && !error & user) setUserData(user);
+  }, [loading, error, user]);
   return (
    <>
     <UserContext.Provider 
@@ -24,7 +24,8 @@ export default function App() {
         setUserData
     }}>
       <div>
-        <PostContainer/>
+        { loading ? "Loading..." :  <PostContainer/> }
+        
       </div>
    </UserContext.Provider>
    </>

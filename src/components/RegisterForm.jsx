@@ -4,7 +4,7 @@ export function RegisterForm() {
     const [formFields, setFormFields] = useState({
         username: "",
         password: "",
-        displayName:""
+        name:""
     })
 
     console.log(formFields)
@@ -28,11 +28,11 @@ export function RegisterForm() {
                 }}/>
             </div>
             <div>
-                <label htmlFor="displayName">Display Name</label>
-                <input id="displayName" value={formFields.displayName} onChange={(e)=>{
+                <label htmlFor="name">Display Name</label>
+                <input id="name" value={formFields.name} onChange={(e)=>{
                     setFormFields((currentState) => ({
                         ...currentState, 
-                        displayName: e.target.value,}))
+                        name: e.target.value,}))
                 }}/>
             </div>
             <div>
@@ -42,7 +42,7 @@ export function RegisterForm() {
                 <span>Password: {formFields.password}</span>
             </div>
             <div>
-                <span>Display Name: {formFields.displayName}</span>
+                <span>Display Name: {formFields.name}</span>
             </div>
             <button>Sign Up</button>
         </form>

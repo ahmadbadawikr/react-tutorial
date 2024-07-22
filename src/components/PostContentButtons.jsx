@@ -1,7 +1,7 @@
 import { UserContext } from "../contexts/UserContext"
 import { useContext } from "react"
 
-export function PostContentButtons({data}){
+export function PostContentButtons(){
     const {id, setUserData} = useContext(UserContext)
     return (
         <div>
@@ -9,7 +9,7 @@ export function PostContentButtons({data}){
             {id}
             <br />
             <button onClick={()=> {
-                setUserData((currentState)=> ({...currentState, displayName: 'Updated Display Name'}) )
+                setUserData((currentState)=> ({...currentState, name: 'Updated Display Name'}) )
             }}>Click Me</button>
         </div>
     )
