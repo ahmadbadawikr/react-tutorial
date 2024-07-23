@@ -8,13 +8,15 @@ import { PostContentButtons } from "./components/PostContentButtons";
 import { useState, useEffect } from "react";
 import { UserContext } from "./contexts/UserContext";
 import { useFetchUser } from "./utils/hooks/useFetchUser";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate } from "react-router-dom";
 
 export default function App() {
   // Destructure as an object
   const { user, loading, error } = useFetchUser(2);
 
   const [userData, setUserData] = useState();
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (!loading && !error && user) {
@@ -38,6 +40,22 @@ export default function App() {
         </li>
       </ul>
     </nav>
+
+    <div>
+      <label htmlFor="data">Enter Data</label>
+      <input type="text" id="data" onChange={(e)=> {
+        console.log(e.target.value)
+        if (e.target.value.length > 10) {
+          navigate('/blog-posts', { state: {
+            posts: [{
+              id:1,
+              title: "hello world",
+              content: "welcome to the first post"
+            }]
+          }})
+        }
+      }} />
+    </div>
       <UserContext.Provider
         value={{
           ...userData,
